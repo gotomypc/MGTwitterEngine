@@ -287,6 +287,9 @@ connectionIdentifier:(NSString *)theIdentifier requestType:(MGTwitterRequestType
 					[dictionary setObject:number forKey:[NSString stringWithUTF8String:(const char *)name]];
 				}
 			}
+			else if (xmlStrEqual(name, BAD_CAST "status")) {
+				[dictionary setObject:[self _statusDictionaryForNodeWithName:name] forKey:[NSString stringWithUTF8String:(const char *)name]];
+			}
 			else
 			{
 				// process element as a string
